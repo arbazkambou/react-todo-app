@@ -4,17 +4,17 @@ import { CardContent, CardDescription, CardTitle } from "./ui/card";
 import { Separator } from "@radix-ui/react-select";
 import { DialogCloseButton } from "./Dialog";
 
-function TaskItem({ todo, onComplete, onUpdate }) {
+function TaskItem({ todo, onComplete, onUpdate, onDelete }) {
   return (
     <>
-      <CardContent className=" flex justify-between">
+      <CardContent className=" flex justify-between space-x-5">
         <div>
           <CardTitle className=" text-xl">{todo.name}</CardTitle>
           <CardDescription className=" mt-1">
             {todo.description}
           </CardDescription>
         </div>
-        <div className="flex sm:flex-col">
+        <div className="flex sm:flex-col md:flex-row flex-col">
           {onComplete && (
             <>
               <Button
@@ -28,7 +28,11 @@ function TaskItem({ todo, onComplete, onUpdate }) {
             </>
           )}
 
-          <Button variant="outline" className=" hover:bg-red-600">
+          <Button
+            variant="outline"
+            className=" hover:bg-red-600"
+            onClick={() => onDelete(todo.id)}
+          >
             <CircleX />
           </Button>
         </div>

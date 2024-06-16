@@ -67,9 +67,14 @@ export function MainApp() {
 
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }
+
+  function onDelete(id) {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+    setCompleted((completed) => completed.filter((todo) => todo.id !== id));
+  }
   return (
     <>
-      <Card className="dark mt-5 md:w-[80%] w-[80%] sm:w-[60%]">
+      <Card className="dark mt-5   sm:w-[90%] w-[90%] ">
         <CardHeader>
           <CardTitle className=" text-center">Add Tasks</CardTitle>
           <CardDescription>
@@ -82,6 +87,7 @@ export function MainApp() {
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">Name</Label>
                 <Input
+                  className=" shrink-1"
                   id="name"
                   placeholder="Enter name of the task"
                   {...register("name", { required: true })}
@@ -103,7 +109,7 @@ export function MainApp() {
         </CardContent>
       </Card>
 
-      <Card className="dark mt-16 md:w-[80%] sm:w-[60%] ">
+      <Card className="dark mt-16 sm:w-[90%] w-[90%] ">
         <CardHeader>
           <CardTitle className="text-center">
             {showPending ? "Pending Tasks" : "Completed Tasks"}
@@ -140,10 +146,15 @@ export function MainApp() {
                 key={todo.id}
                 onComplete={onComplete}
                 onUpdate={onUpdate}
+                onDelete={onDelete}
               />
             ))
           : completed.map((completedTodo) => (
-              <TaskItem todo={completedTodo} key={completedTodo.id} />
+              <TaskItem
+                todo={completedTodo}
+                key={completedTodo.id}
+                onDelete={onDelete}
+              />
             ))}
         {}
       </Card>
