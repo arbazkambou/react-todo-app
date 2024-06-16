@@ -69,7 +69,7 @@ export function MainApp() {
   }
   return (
     <>
-      <Card className="dark mt-5 w-[80%]">
+      <Card className="dark mt-5 md:w-[80%] w-[80%] sm:w-[60%]">
         <CardHeader>
           <CardTitle className=" text-center">Add Tasks</CardTitle>
           <CardDescription>
@@ -103,7 +103,7 @@ export function MainApp() {
         </CardContent>
       </Card>
 
-      <Card className="dark mt-16 w-[80%] ">
+      <Card className="dark mt-16 md:w-[80%] sm:w-[60%] ">
         <CardHeader>
           <CardTitle className="text-center">
             {showPending ? "Pending Tasks" : "Completed Tasks"}
@@ -114,7 +114,7 @@ export function MainApp() {
           className="dark w-[100%] flex justify-center"
           defaultValue="Pending"
         >
-          <TabsList className=" grid grid-cols-2 w-[50%]">
+          <TabsList className=" grid md:grid-cols-2 sm:w-[30%] sm:grid-cols-1 mb-10">
             <TabsTrigger
               value="Pending"
               onClick={() =>

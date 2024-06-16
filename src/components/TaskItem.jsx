@@ -7,14 +7,14 @@ import { DialogCloseButton } from "./Dialog";
 function TaskItem({ todo, onComplete, onUpdate }) {
   return (
     <>
-      <CardContent className=" flex justify-between space-x-5">
+      <CardContent className=" flex justify-between">
         <div>
           <CardTitle className=" text-xl">{todo.name}</CardTitle>
           <CardDescription className=" mt-1">
             {todo.description}
           </CardDescription>
         </div>
-        <div>
+        <div className="flex sm:flex-col">
           {onComplete && (
             <>
               <Button
