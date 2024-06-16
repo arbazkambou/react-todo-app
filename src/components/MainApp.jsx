@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import TaskItem from "./TaskItem";
 
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 
 export function MainApp() {
@@ -20,6 +20,24 @@ export function MainApp() {
   const [completed, setCompleted] = useState([]);
   const { handleSubmit, reset, register } = useForm();
   const [showPending, setShowPending] = useState(true);
+
+  useEffect(() => {
+    // Load todos and completed tasks from localStorage when the component mounts
+    const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+    const storedCompleted = JSON.parse(localStorage.getItem("completed")) || [];
+    setTodos(storedTodos);
+    setCompleted(storedCompleted);
+  }, []);
+
+  useEffect(() => {
+    // Save todos to localStorage whenever they change
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  useEffect(() => {
+    // Save completed tasks to localStorage whenever they change
+    localStorage.setItem("completed", JSON.stringify(completed));
+  }, [completed]);
 
   function generateRandomId() {
     return Math.floor(Math.random() * 1000000) + 1;
