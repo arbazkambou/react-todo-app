@@ -9,11 +9,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { TaskContext } from "@/context/TaskContextProvider";
 import { FilePenLine } from "lucide-react";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { useForm } from "react-hook-form";
 
-export function DialogCloseButton({ todo, onUpdate }) {
+export function DialogCloseButton({ todo }) {
+  const { onUpdate } = useContext(TaskContext);
   const { handleSubmit, reset, register } = useForm({
     defaultValues: todo,
   });

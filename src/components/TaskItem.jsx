@@ -3,8 +3,11 @@ import { Button } from "./ui/button";
 import { CardContent, CardDescription, CardTitle } from "./ui/card";
 import { Separator } from "@radix-ui/react-select";
 import { DialogCloseButton } from "./Dialog";
+import { useContext } from "react";
+import { TaskContext } from "@/context/TaskContextProvider";
 
-function TaskItem({ todo, onComplete, onUpdate, onDelete }) {
+function TaskItem({ todo }) {
+  const { onComplete, onDelete } = useContext(TaskContext);
   return (
     <>
       <CardContent className=" flex justify-between space-x-5">
@@ -24,7 +27,7 @@ function TaskItem({ todo, onComplete, onUpdate, onDelete }) {
               >
                 <ClipboardCheck />
               </Button>
-              <DialogCloseButton todo={todo} onUpdate={onUpdate} />
+              <DialogCloseButton todo={todo} />
             </>
           )}
 
