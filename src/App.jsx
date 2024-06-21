@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import AddTaskForm from "./components/AddTask";
-
 import MenuTabs from "./components/MenuTabs";
-
 import Tasks from "./components/Tasks";
 import { Card, CardHeader, CardTitle } from "./components/ui/card";
 import { TaskContext } from "./context/TaskContextProvider";

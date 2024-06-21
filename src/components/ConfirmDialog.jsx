@@ -14,7 +14,7 @@ import { FilePenLine } from "lucide-react";
 import { useContext, useRef } from "react";
 import { useForm } from "react-hook-form";
 
-export function DialogCloseButton({ todo }) {
+export function ConfirmDialog({ todo }) {
   const { onUpdate } = useContext(TaskContext);
   const { handleSubmit, reset, register } = useForm({
     defaultValues: todo,

@@ -2,7 +2,7 @@ import { CircleX, ClipboardCheck } from "lucide-react";
 import { Button } from "./ui/button";
 import { CardContent, CardDescription, CardTitle } from "./ui/card";
 import { Separator } from "@radix-ui/react-select";
-import { DialogCloseButton } from "./Dialog";
+import { ConfirmDialog } from "./ConfirmDialog";
 import { useContext } from "react";
 import { TaskContext } from "@/context/TaskContextProvider";
 
@@ -27,7 +27,7 @@ function TaskItem({ todo }) {
               >
                 <ClipboardCheck />
               </Button>
-              <DialogCloseButton todo={todo} />
+              <ConfirmDialog todo={todo} />
             </>
           )}
 
