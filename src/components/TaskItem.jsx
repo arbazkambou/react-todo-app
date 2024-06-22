@@ -3,11 +3,12 @@ import { Button } from "./ui/button";
 import { CardContent, CardDescription, CardTitle } from "./ui/card";
 import { Separator } from "@radix-ui/react-select";
 import { ConfirmDialog } from "./ConfirmDialog";
-import { useContext } from "react";
-import { TaskContext } from "@/context/TaskContextProvider";
+import { useDispatch } from "react-redux";
+import { completeTodo, removeTodo } from "@/todoSlice";
 
-function TaskItem({ todo }) {
-  const { onComplete, onDelete } = useContext(TaskContext);
+function TaskItem({ todo, isCompleted = false }) {
+  const dispatch = useDispatch();
+
   return (
     <>
       <CardContent className=" flex justify-between space-x-5">
@@ -18,26 +19,33 @@ function TaskItem({ todo }) {
           </CardDescription>
         </div>
         <div className="flex sm:flex-col md:flex-row flex-col">
-          {onComplete && (
+          {isCompleted ? (
+            <Button
+              variant="outline"
+              className=" hover:bg-red-600"
+              onClick={() => dispatch(removeTodo(todo.id))}
+            >
+              <CircleX />
+            </Button>
+          ) : (
             <>
               <Button
                 variant="outline"
                 className=" hover:bg-green-600"
-                onClick={() => onComplete(todo.id)}
+                onClick={() => dispatch(completeTodo(todo.id))}
               >
                 <ClipboardCheck />
               </Button>
               <ConfirmDialog todo={todo} />
+              <Button
+                variant="outline"
+                className=" hover:bg-red-600"
+                onClick={() => dispatch(removeTodo(todo.id))}
+              >
+                <CircleX />
+              </Button>
             </>
           )}
-
-          <Button
-            variant="outline"
-            className=" hover:bg-red-600"
-            onClick={() => onDelete(todo.id)}
-          >
-            <CircleX />
-          </Button>
         </div>
       </CardContent>
       <Separator className=" my-5 border-2" />

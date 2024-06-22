@@ -62,6 +62,10 @@
   background-color: 20 14.3% 4.1%;
 }
 
+/* html {
+  transition: background-color 1s ease, color 1s ease;
+} */
+
 body {
-  @apply bg-stone-950;
+  transition: background-color 0.3s linear, color 0.3s linear;
 }

@@ -9,23 +9,21 @@ import {
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
-import { useContext } from "react";
-import { TaskContext } from "@/context/TaskContextProvider";
+import { useDispatch } from "react-redux";
+import { addTodo } from "@/todoSlice";
 
 function AddTaskForm() {
   const { handleSubmit, register, reset } = useForm();
-  const { todos, setTodos } = useContext(TaskContext);
-  function generateRandomId() {
-    return Math.floor(Math.random() * 1000000) + 1;
-  }
+  const dispatch = useDispatch();
+
   function onSubmit(data) {
-    const id = generateRandomId();
-    const task = { ...data, id };
-    setTodos(() => [...todos, task]);
+    const { name, description } = data;
+    dispatch(addTodo({ name, description }));
     reset();
   }
+
   return (
-    <Card className="dark mt-5   sm:w-[90%] w-[90%] ">
+    <Card className=" mt-5 shadow-md  sm:w-[90%] w-[90%] ">
       <CardHeader>
         <CardTitle className=" text-center">Add Tasks</CardTitle>
         <CardDescription>
