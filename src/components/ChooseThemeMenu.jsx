@@ -13,8 +13,8 @@ import { useEffect, useState } from "react";
 import { useTheme } from "./ThemeProvider";
 
 export function ChooseThemeMenu() {
-  const [position, setPosition] = useState("light");
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [position, setPosition] = useState(theme);
 
   useEffect(
     function () {
