@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "./ThemeProvider";
 
 export function ChooseThemeMenu() {
-  const [position, setPosition] = useState("system");
+  const [position, setPosition] = useState("light");
   const { setTheme } = useTheme();
 
   useEffect(
@@ -35,7 +35,6 @@ export function ChooseThemeMenu() {
         <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
           <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="system">Sytem</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

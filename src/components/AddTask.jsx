@@ -10,7 +10,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
 import { useDispatch } from "react-redux";
-import { addTodo } from "@/todoSlice";
+import { addTodo } from "@/features/todoSlice";
 
 function AddTaskForm() {
   const { handleSubmit, register, reset } = useForm();

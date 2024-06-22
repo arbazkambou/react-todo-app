@@ -4,7 +4,7 @@ import { CardContent, CardDescription, CardTitle } from "./ui/card";
 import { Separator } from "@radix-ui/react-select";
 import { ConfirmDialog } from "./ConfirmDialog";
 import { useDispatch } from "react-redux";
-import { completeTodo, removeTodo } from "@/todoSlice";
+import { completeTodo, removeTodo } from "@/features/todoSlice";
 
 function TaskItem({ todo, isCompleted = false }) {
   const dispatch = useDispatch();

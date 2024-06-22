@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddTaskForm from "./components/AddTask";
 import MenuTabs from "./components/MenuTabs";
 import Tasks from "./components/Tasks";

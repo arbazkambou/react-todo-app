@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { updateTodo } from "@/todoSlice";
+import { updateTodo } from "@/features/todoSlice";
 import { FilePenLine } from "lucide-react";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
