@@ -1,5 +1,19 @@
-# Simple Todo List App
+# React Todo App
 
-Made with react. Data will be stored in local storage
+This is a simple Todo application built with React. It allows users to add, delete, and mark tasks as completed.
 
-## Feel free to check it out [Todo List App](https://react-todo-app-five-zeta.vercel.app/)
+[View Live Project](https://react-router-budgeting-app.vercel.app/)
+
+## Features
+
+- Add new tasks
+- Delete tasks
+- Mark tasks as completed
+- Simple and intuitive user interface
+
+## Technologies Used
+
+- React
+- Redux Toolkit
+- Tailwind CSS
+- Shadcn/ui
